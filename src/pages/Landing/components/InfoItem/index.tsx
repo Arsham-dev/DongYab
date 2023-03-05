@@ -6,6 +6,7 @@ interface InfoItemProps {
   index: number
   title: string
   price: string
+  removeFunction?: () => void
 }
 const InfoItemBase = styled('div')`
   display: flex;
@@ -24,10 +25,15 @@ const RemoveIcon = styled('img')`
     opacity: 0.8;
   }
 `
-const InfoItem: React.FC<InfoItemProps> = ({ index, title, price }) => {
+const InfoItem: React.FC<InfoItemProps> = ({
+  index,
+  title,
+  price,
+  removeFunction
+}) => {
   return (
     <InfoItemBase>
-      <RemoveIcon src={removeIcon} alt="removeIcon" />
+      <RemoveIcon src={removeIcon} alt="removeIcon" onClick={removeFunction} />
       <div
         style={{
           display: 'flex',
