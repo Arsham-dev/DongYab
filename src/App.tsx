@@ -1,7 +1,11 @@
-import './App.css'
+import Layout from './pages/Layout'
 
 const App = () => {
-  return <div className=""></div>
+  return (
+    <Layout>
+      <div>hello</div>
+    </Layout>
+  )
 }
 
 export default App
