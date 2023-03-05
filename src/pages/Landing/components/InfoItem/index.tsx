@@ -18,6 +18,11 @@ const InfoItemBase = styled('div')`
   font-size: 20px;
   color: #ffffff;
 `
+const InfoItemText = styled('div')`
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+`
 const RemoveIcon = styled('img')`
   cursor: pointer;
   transition: all 0.3s ease-in-out;
@@ -34,12 +39,7 @@ const InfoItem: React.FC<InfoItemProps> = ({
   return (
     <InfoItemBase>
       <RemoveIcon src={removeIcon} alt="removeIcon" onClick={removeFunction} />
-      <div
-        style={{
-          display: 'flex',
-          flexDirection: 'row-reverse',
-          alignItems: 'center'
-        }}>
+      <InfoItemText>
         <span>-{index}</span>
         &nbsp;
         <span>:{title}</span>
@@ -47,7 +47,7 @@ const InfoItem: React.FC<InfoItemProps> = ({
         <span>{price}</span>
         &nbsp; &nbsp;
         <span>T</span>
-      </div>
+      </InfoItemText>
     </InfoItemBase>
   )
 }

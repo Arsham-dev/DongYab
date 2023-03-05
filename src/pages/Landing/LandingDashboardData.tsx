@@ -14,7 +14,6 @@ const LandingDashboardDataBase = styled('div')`
   align-items: flex-start;
   justify-items: center;
   margin-top: 28px;
-  margin-bottom: 100px;
 `
 
 interface LandingDashboardDataProps {
