@@ -39,6 +39,22 @@ const TextFieldContianer: React.FC<TextFieldContianerProps> = ({
   data,
   setData
 }) => {
+  const formatter = new Intl.NumberFormat('en-US', {
+    currency: 'IRR',
+    style: 'currency'
+  })
+  const setPriceFunction = (number: string) => {
+    return formatter
+      .format(
+        Number(
+          number
+            .split('')
+            .map((item) => (/^\d+$/.test(item) ? item : ''))
+            .join('') || '0'
+        )
+      )
+      .slice(4)
+  }
   const [title, settitle] = useState('')
   const [price, setprice] = useState('')
   const addData = () => {
@@ -66,7 +82,7 @@ const TextFieldContianer: React.FC<TextFieldContianerProps> = ({
         placeholder={pricePlacerHolder}
         icon={priceIcon}
         value={price}
-        onChange={(info) => setprice(info)}
+        onChange={(info) => setprice(setPriceFunction(info))}
       />
       <AddButton src={addButton} alt="addButton" onClick={addData} />
     </MainContainer>

@@ -1,5 +1,5 @@
 /** @jsxImportSource @emotion/react */
-import React from 'react'
+import React, { useState } from 'react'
 import styled from '@emotion/styled'
 import T from '../../../../assets/landing/T.svg'
 import { css } from '@emotion/react'
@@ -38,6 +38,7 @@ const PriceLogo = styled('img')`
   position: absolute;
   left: 15px;
 `
+//TODO: Add hover
 interface TextFieldProps {
   size?: 'medium' | 'large'
   isPrice?: boolean
@@ -54,16 +55,23 @@ const TextField: React.FC<TextFieldProps> = ({
   value,
   onChange
 }) => {
+  const [focused, setFocused] = useState(false)
+  const onFocus = () => setFocused(true)
+  const onBlur = () => setFocused(false)
   return (
     <MainContainer>
       <InputContainer
         css={css`
           width: ${size === 'medium' ? 145 : 211}px;
+          border: ${focused ? '1.5px solid #000' : '1.5px solid transparent'};
+          transition: border 0.4s ease-in-out;
         `}>
         <Input
           placeholder={placeholder}
           value={value}
           onChange={(e) => onChange(e.target.value)}
+          onFocus={onFocus}
+          onBlur={onBlur}
         />
         {isPrice && <PriceLogo src={T} alt="T" />}
       </InputContainer>
