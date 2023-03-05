@@ -21,7 +21,7 @@ const TextField: React.FC<TextFieldProps> = ({
     column-gap: 5px;
   `
   const InputContainer = styled('div')`
-    width: ${size === 'medium' ? 170 : 236}px;
+    width: ${size === 'medium' ? 145 : 211}px;
     background-color: #fff;
     padding: 15px 10px 14px 15px;
     border-radius: 26px;
