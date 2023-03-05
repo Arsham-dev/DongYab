@@ -3,11 +3,15 @@
 import styled from '@emotion/styled'
 import React from 'react'
 import ResultInfoItemContainer from './components/ResultInfoItem/ResultInfoItemContainer'
+import Button from './components/Button'
+import downloadIcon from '../../assets/landing/download-icon.svg'
+
 const LandingDashboardResultBase = styled('div')`
   display: flex;
   flex-direction: column;
   width: 100%;
   align-items: center;
+  padding-bottom: 800px;
 `
 const LandingDashboardResultHeader = styled('div')`
   font-style: normal;
@@ -33,6 +37,11 @@ const LandingDashboardResult: React.FC<LandingDashboardResultProps> = ({
         T&nbsp;&nbsp;{`مجموع خرج های انجام شده: ${totalMoney} `}
       </LandingDashboardResultHeader>
       <ResultInfoItemContainer />
+      <Button
+        size="large"
+        title="دریافت فایل اکسل تمامی ریز هزینه های اشخاص"
+        icon={downloadIcon}
+      />
     </LandingDashboardResultBase>
   )
 }

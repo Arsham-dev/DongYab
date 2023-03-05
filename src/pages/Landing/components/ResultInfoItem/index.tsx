@@ -12,7 +12,7 @@ interface ResultInfoItemProps {
 }
 const InfoItemBase = styled('div')`
   display: grid;
-  grid-template-columns: 1fr auto;
+  grid-template-columns: 22fr 13fr;
   column-gap: 42px;
   align-items: center;
   justify-items: flex-end;
