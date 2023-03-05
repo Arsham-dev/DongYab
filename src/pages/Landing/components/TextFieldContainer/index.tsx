@@ -26,6 +26,10 @@ const TextFieldContianer: React.FC<TextFieldContianerProps> = ({
   const AddButton = styled('img')`
     cursor: pointer;
     margin-right: 10px;
+    transition: all 0.3s ease-in-out;
+    &:hover {
+      opacity: 0.8;
+    }
   `
   return (
     <MainContainer>

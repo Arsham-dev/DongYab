@@ -22,6 +22,11 @@ const Button: React.FC<ButtonProps> = ({ title, size = 'medium', icon }) => {
     color: #000000;
     padding: ${size === 'medium' ? '12px 44px' : '18px 43px'};
     font-family: IRANYekanWeb;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    &:hover {
+      opacity: 0.8;
+    }
   `
   return (
     <ButtonBase>
