@@ -21,6 +21,25 @@ const SepratorLine = styled('div')`
   height: 100%;
   border: 2px solid #ebff00;
 `
+const GuideButton = styled('button')`
+  width: 86px;
+  height: 34px;
+  background: #1cc976;
+  border: 1px solid #ebff00;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'IRANYekanWeb';
+  font-weight: 900;
+  font-size: 20px;
+  text-align: center;
+  color: #ebff00;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  &:hover {
+    opacity: 0.8;
+  }
+`
 interface LandingDashboardInputsProps {
   items: Item[]
   setitems: React.Dispatch<React.SetStateAction<Item[]>>
@@ -45,10 +64,10 @@ const LandingDashboardInputs: React.FC<LandingDashboardInputsProps> = ({
           width: 100%;
           margin-bottom: 5px;
           position: relative;
-          right: 10px;
+          right: 15px;
         `}>
         <HeaderTitle>اقلام</HeaderTitle>
-        <HeaderTitle>راهنما</HeaderTitle>
+        <GuideButton>راهنما</GuideButton>
         <HeaderTitle>اشخاص</HeaderTitle>
       </div>
       <div
