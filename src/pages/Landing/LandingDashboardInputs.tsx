@@ -1,6 +1,6 @@
 /** @jsxImportSource @emotion/react */
 
-import React from 'react'
+import React, { useState } from 'react'
 import { css } from '@emotion/react'
 import styled from '@emotion/styled'
 import priceVector from '../../assets/landing/price-vector.svg'
@@ -9,6 +9,7 @@ import personVector from '../../assets/landing/person-vector.svg'
 import TextFieldContianer from './components/TextFieldContainer'
 import Item from '../../types/items'
 import Person from '../../types/person'
+import LandingGuideModal from './LandingGuideModal'
 
 const HeaderTitle = styled('span')`
   font-style: normal;
@@ -53,6 +54,7 @@ const LandingDashboardInputs: React.FC<LandingDashboardInputsProps> = ({
   persons,
   setpersons
 }) => {
+  const [isOpen, setisOpen] = useState<boolean>(false)
   return (
     <>
       <div
@@ -67,7 +69,7 @@ const LandingDashboardInputs: React.FC<LandingDashboardInputsProps> = ({
           right: 15px;
         `}>
         <HeaderTitle>اقلام</HeaderTitle>
-        <GuideButton>راهنما</GuideButton>
+        <GuideButton onClick={() => setisOpen(true)}>راهنما</GuideButton>
         <HeaderTitle>اشخاص</HeaderTitle>
       </div>
       <div
@@ -99,6 +101,7 @@ const LandingDashboardInputs: React.FC<LandingDashboardInputsProps> = ({
           setData={setpersons}
         />
       </div>
+      <LandingGuideModal isOpen={isOpen} onClose={() => setisOpen(false)} />
     </>
   )
 }
