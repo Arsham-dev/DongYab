@@ -5,6 +5,7 @@ import React from 'react'
 import ResultInfoItemContainer from './components/ResultInfoItem/ResultInfoItemContainer'
 import Button from './components/Button'
 import downloadIcon from '../../assets/landing/download-icon.svg'
+import PersonResult from '../../types/personResult'
 
 const LandingDashboardResultBase = styled('div')`
   display: flex;
@@ -27,16 +28,18 @@ const LandingDashboardResultHeader = styled('div')`
 `
 interface LandingDashboardResultProps {
   totalMoney: string
+  personsResult: PersonResult[]
 }
 const LandingDashboardResult: React.FC<LandingDashboardResultProps> = ({
-  totalMoney
+  totalMoney,
+  personsResult
 }) => {
   return (
     <LandingDashboardResultBase>
       <LandingDashboardResultHeader>
         T&nbsp;&nbsp;{`مجموع خرج های انجام شده: ${totalMoney} `}
       </LandingDashboardResultHeader>
-      <ResultInfoItemContainer />
+      <ResultInfoItemContainer personsResult={personsResult} />
       <Button
         size="large"
         title="دریافت فایل اکسل تمامی ریز هزینه های اشخاص"

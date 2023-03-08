@@ -1,15 +1,11 @@
 /** @jsxImportSource @emotion/react */
 
-import React from 'react'
+import React, { useState } from 'react'
 import styled from '@emotion/styled'
 import { css } from '@emotion/react'
 import upIcon from '../../../../assets/landing/up-icon.svg'
-interface ResultInfoItemProps {
-  index: number
-  title: string
-  price: string
-  shouldPay: boolean
-}
+import ResultMoreInfoModal from '../ResultMoreInfoModal'
+import Item from '../../../../types/items'
 const InfoItemBase = styled('div')`
   display: grid;
   grid-template-columns: 22fr 13fr;
@@ -48,35 +44,58 @@ const MoreInfoButton = styled('button')`
     opacity: 0.8;
   }
 `
+interface ResultInfoItemProps {
+  index: number
+  title: string
+  price: string
+  shouldPay: boolean
+  totalMoney: string
+  items: Item[]
+  paidMoney: string
+}
 const ResultInfoItem: React.FC<ResultInfoItemProps> = ({
   index,
   title,
   price,
-  shouldPay
+  shouldPay,
+  totalMoney,
+  items,
+  paidMoney
 }) => {
+  const [isOpen, setisOpen] = useState<boolean>(false)
   return (
-    <InfoItemBase>
-      <MoreInfoButton>
-        <span>ریز هزینه‌ها</span>
-        <img src={upIcon} alt="upIcon" />
-      </MoreInfoButton>
-      <InfoItemText>
-        <span>-{index}</span>
-        &nbsp;
-        <span>:{title}</span>
-        &nbsp;
-        <span>{price}</span>
-        &nbsp; &nbsp;
-        <span>T</span>
-        &nbsp; &nbsp;
-        <span
-          css={css`
-            color: ${shouldPay ? '#FF0000' : '#000'};
-          `}>
-          {shouldPay ? 'بدهکار' : 'طلبکار'}
-        </span>
-      </InfoItemText>
-    </InfoItemBase>
+    <>
+      <InfoItemBase>
+        <MoreInfoButton onClick={() => setisOpen(true)}>
+          <span>ریز هزینه‌ها</span>
+          <img src={upIcon} alt="upIcon" />
+        </MoreInfoButton>
+        <InfoItemText>
+          <span>-{index}</span>
+          &nbsp;
+          <span>:{title}</span>
+          &nbsp;
+          <span>{price}</span>
+          &nbsp; &nbsp;
+          <span>T</span>
+          &nbsp; &nbsp;
+          <span
+            css={css`
+              color: ${shouldPay ? '#FF0000' : '#000'};
+            `}>
+            {shouldPay ? 'بدهکار' : 'طلبکار'}
+          </span>
+        </InfoItemText>
+      </InfoItemBase>
+      <ResultMoreInfoModal
+        isOpen={isOpen}
+        onClose={() => setisOpen(false)}
+        totalItemsPrice={totalMoney}
+        items={items}
+        moneyShouldPay={price}
+        paidMoney={paidMoney}
+      />
+    </>
   )
 }
 export default ResultInfoItem

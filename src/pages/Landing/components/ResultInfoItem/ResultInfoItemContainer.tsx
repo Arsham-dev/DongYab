@@ -1,5 +1,7 @@
 import styled from '@emotion/styled'
 import ResultInfoItem from '.'
+import PersonResult from '../../../../types/personResult'
+import { FC } from 'react'
 const InfoItemContainerBase = styled('div')`
   display: flex;
   flex-direction: column;
@@ -7,20 +9,31 @@ const InfoItemContainerBase = styled('div')`
   width: calc(100% - 380px);
   margin-bottom: 100px;
 `
-const ResultInfoItemContainer = () => {
+interface ResultInfoItemContainerProps {
+  personsResult: PersonResult[]
+}
+const ResultInfoItemContainer: FC<ResultInfoItemContainerProps> = ({
+  personsResult
+}) => {
   return (
     <InfoItemContainerBase>
-      {Array(3)
-        .fill(null)
-        .map((_, index) => (
+      {personsResult.map(
+        (
+          { name, moneyShouldPay, totalMoney, items, paidMoney, shouldPay },
+          index
+        ) => (
           <ResultInfoItem
-            title="آرشام رمضانی"
-            price="140,233,000"
-            shouldPay={index % 2 === 0}
+            title={name}
+            price={moneyShouldPay}
+            shouldPay={shouldPay}
             index={index + 1}
+            totalMoney={totalMoney}
+            items={items}
+            paidMoney={paidMoney}
             key={index}
           />
-        ))}
+        )
+      )}
     </InfoItemContainerBase>
   )
 }

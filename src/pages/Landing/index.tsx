@@ -6,6 +6,7 @@ import styled from '@emotion/styled'
 import Person from '../../types/person'
 import Item from '../../types/items'
 import LandingDashboardResult from './LandingDashboardResult'
+import PersonResult from '../../types/personResult'
 
 const LandingBase = styled('div')`
   width: 100%;
@@ -22,6 +23,16 @@ const SepratorLine = styled('div')`
 const Landing = () => {
   const [persons, setpersons] = useState<Person[]>([])
   const [items, setitems] = useState<Item[]>([])
+  const [personsResult, setpersonsResult] = useState<PersonResult[]>([
+    {
+      name: 'آرشام رمضانی',
+      moneyShouldPay: '443,312',
+      paidMoney: '454,777',
+      totalMoney: '912,453',
+      shouldPay: true,
+      items: [{ price: '34,234', title: 'چیپس' }]
+    }
+  ])
   return (
     <LandingBase>
       <LandingHeader />
@@ -32,7 +43,10 @@ const Landing = () => {
         setitems={setitems}
       />
       <SepratorLine />
-      <LandingDashboardResult totalMoney="5,000,000" />
+      <LandingDashboardResult
+        totalMoney="5,000,000"
+        personsResult={personsResult}
+      />
     </LandingBase>
   )
 }
