@@ -9,7 +9,7 @@ const InfoItemContainerBase = styled('div')`
   width: calc(100% - 380px);
   margin-bottom: 100px;
   @media (max-width: 420px) {
-    width: calc(100% - 60px);
+    width: 100%;
   }
 `
 interface ResultInfoItemContainerProps {

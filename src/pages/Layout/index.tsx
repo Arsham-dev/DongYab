@@ -16,6 +16,7 @@ const LayoutBody = styled('div')`
   background-color: #1cc976;
   @media (max-width: 420px) {
     padding: 0 10px;
+    width: calc(100% - 20px);
   }
 `
 const LeftPartImage = styled('img')`
@@ -24,6 +25,7 @@ const LeftPartImage = styled('img')`
   left: 6px;
   @media (max-width: 420px) {
     left: 0;
+    display: none;
   }
 `
 const RightPartImage = styled('img')`
@@ -32,6 +34,7 @@ const RightPartImage = styled('img')`
   right: 6px;
   @media (max-width: 420px) {
     right: 0;
+    display: none;
   }
 `
 

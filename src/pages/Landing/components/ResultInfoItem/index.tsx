@@ -16,6 +16,7 @@ const InfoItemBase = styled('div')`
     display: flex;
     flex-direction: column-reverse;
     row-gap: 10px;
+    width: 100%;
   }
 `
 const InfoItemText = styled('div')`
