@@ -95,6 +95,9 @@ const ResultMoreInfoModal: FC<ResultMoreInfoModalProps> = ({
         padding: 26.25px;
         display: flex;
         flex-direction: column;
+        @media (max-width: 480px) {
+          width: calc(100% - 100px);
+        }
       `}>
       <CloseButton src={CloseIcon} alt="close" onClick={onClose} />
       <ModalBody>

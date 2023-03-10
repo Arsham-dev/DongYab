@@ -57,6 +57,9 @@ const LandingGuideModal: React.FC<LandingGuideModalProps> = ({
         padding: 26.25px;
         display: flex;
         flex-direction: column;
+        @media (max-width: 480px) {
+          width: calc(100% - 100px);
+        }
       `}>
       <CloseButton onClick={onClose} src={CloseIcon} alt="close-icon" />
       <ModalBody>
