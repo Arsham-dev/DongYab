@@ -13,6 +13,9 @@ const LandingDashboardResultBase = styled('div')`
   width: 100%;
   align-items: center;
   padding-bottom: 800px;
+  @media (max-width: 420px) {
+    padding-bottom: 100px;
+  }
 `
 const LandingDashboardResultHeader = styled('div')`
   font-style: normal;
