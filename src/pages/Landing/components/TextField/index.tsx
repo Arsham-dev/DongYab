@@ -65,6 +65,9 @@ const TextField: React.FC<TextFieldProps> = ({
           width: ${size === 'medium' ? 145 : 211}px;
           border: ${focused ? '1.5px solid #000' : '1.5px solid transparent'};
           transition: border 0.4s ease-in-out;
+          @media (max-width: 420px) {
+            width: 100%;
+          }
         `}>
         <Input
           placeholder={placeholder}

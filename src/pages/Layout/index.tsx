@@ -14,16 +14,26 @@ const LayoutBody = styled('div')`
   display: flex;
   justify-content: center;
   background-color: #1cc976;
+  @media (max-width: 420px) {
+    padding: 0 10px;
+  }
 `
 const LeftPartImage = styled('img')`
   position: absolute;
   top: 0;
   left: 6px;
+  @media (max-width: 420px) {
+    left: 0;
+  }
 `
 const RightPartImage = styled('img')`
-position:absolutel
-top:0;
-right:6px;`
+  position: absolute;
+  top: 0;
+  right: 6px;
+  @media (max-width: 420px) {
+    right: 0;
+  }
+`
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (

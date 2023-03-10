@@ -1,6 +1,6 @@
 /** @jsxImportSource @emotion/react */
 
-import React, { useState } from 'react'
+import React, { FC, useState } from 'react'
 import styled from '@emotion/styled'
 import TextField from '../TextField'
 import addButton from '../../../../assets/landing/add-button.svg'
@@ -13,6 +13,11 @@ const MainContainer = styled('div')`
   border-radius: 35.5px;
   padding: 13px 20px 13px 15px;
   column-gap: 10px;
+  @media (max-width: 420px) {
+    flex-direction: column;
+    row-gap: 10px;
+    align-items: center;
+  }
 `
 const AddButton = styled('img')`
   cursor: pointer;
@@ -20,24 +25,35 @@ const AddButton = styled('img')`
   transition: all 0.3s ease-in-out;
   &:hover {
     opacity: 0.8;
+    margin: auto;
+  }
+`
+const Title = styled('span')`
+  display: none;
+  color: #000;
+  font-weight: 800;
+  @media (max-width: 420px) {
+    display: flex;
   }
 `
 interface TextFieldContianerProps {
   namePlacerHolder: string
   pricePlacerHolder: string
+  label: string
   nameIcon: string
   priceIcon: string
   addInfoFunction?: () => void
   data: Item[]
   setData: React.Dispatch<React.SetStateAction<Item[]>>
 }
-const TextFieldContianer: React.FC<TextFieldContianerProps> = ({
+const TextFieldContianer: FC<TextFieldContianerProps> = ({
   nameIcon,
   priceIcon,
   namePlacerHolder,
   pricePlacerHolder,
   data,
-  setData
+  setData,
+  label
 }) => {
   const formatter = new Intl.NumberFormat('en-US', {
     currency: 'IRR',
@@ -70,6 +86,7 @@ const TextFieldContianer: React.FC<TextFieldContianerProps> = ({
   }
   return (
     <MainContainer>
+      <Title>{label}</Title>
       <TextField
         placeholder={namePlacerHolder}
         icon={nameIcon}

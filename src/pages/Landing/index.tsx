@@ -43,10 +43,10 @@ const Landing = () => {
         setitems={setitems}
       />
       <SepratorLine />
-      <LandingDashboardResult
+      {/* <LandingDashboardResult
         totalMoney="5,000,000"
         personsResult={personsResult}
-      />
+      /> */}
     </LandingBase>
   )
 }
