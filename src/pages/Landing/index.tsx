@@ -19,6 +19,10 @@ const SepratorLine = styled('div')`
   background-color: #ebff00;
   margin: 100px 0 30px 0;
   width: calc(100% - 380px);
+  @media (max-width: 420px) {
+    width: calc(100% - 60px);
+    margin: 20px 40px;
+  }
 `
 const Landing = () => {
   const [persons, setpersons] = useState<Person[]>([])
@@ -43,10 +47,10 @@ const Landing = () => {
         setitems={setitems}
       />
       <SepratorLine />
-      {/* <LandingDashboardResult
+      <LandingDashboardResult
         totalMoney="5,000,000"
         personsResult={personsResult}
-      /> */}
+      />
     </LandingBase>
   )
 }

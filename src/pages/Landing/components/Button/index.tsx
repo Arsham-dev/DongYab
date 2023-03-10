@@ -27,6 +27,10 @@ const ButtonBase = styled('button')`
   &:hover {
     opacity: 0.8;
   }
+  @media (max-width: 420px) {
+    column-gap: 10px;
+    margin: 0 30px;
+  }
 `
 const Button: React.FC<ButtonProps> = ({ title, size = 'medium', icon }) => {
   return (
@@ -34,6 +38,9 @@ const Button: React.FC<ButtonProps> = ({ title, size = 'medium', icon }) => {
       css={css`
         padding: ${size === 'medium' ? '12px 44px' : '18px 43px'};
         border-radius: ${size === 'medium' ? '25px' : '39.5px'};
+        @media (max-width: 420px) {
+          padding: ${size === 'medium' ? '12px 44px' : '18px 20px'};
+        }
       `}>
       <span>{title}</span>
       {icon && <img src={icon} alt="icon" />}

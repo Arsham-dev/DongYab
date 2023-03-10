@@ -8,6 +8,9 @@ const InfoItemContainerBase = styled('div')`
   row-gap: 34px;
   width: calc(100% - 380px);
   margin-bottom: 100px;
+  @media (max-width: 420px) {
+    width: calc(100% - 60px);
+  }
 `
 interface ResultInfoItemContainerProps {
   personsResult: PersonResult[]

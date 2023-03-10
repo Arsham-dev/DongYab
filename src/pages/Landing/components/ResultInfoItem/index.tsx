@@ -12,6 +12,11 @@ const InfoItemBase = styled('div')`
   column-gap: 42px;
   align-items: center;
   justify-items: flex-end;
+  @media (max-width: 420px) {
+    display: flex;
+    flex-direction: column-reverse;
+    row-gap: 10px;
+  }
 `
 const InfoItemText = styled('div')`
   display: flex;

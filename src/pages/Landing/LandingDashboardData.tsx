@@ -7,6 +7,10 @@ import Item from '../../types/items'
 import Person from '../../types/person'
 const ButtonConatiner = styled('div')`
   margin: 0 45px;
+  @media (max-width: 420px) {
+    margin: 0;
+    width: 100%;
+  }
 `
 const LandingDashboardDataBase = styled('div')`
   display: grid;
@@ -14,6 +18,12 @@ const LandingDashboardDataBase = styled('div')`
   align-items: flex-start;
   justify-items: center;
   margin-top: 28px;
+  @media (max-width: 420px) {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    row-gap: 10px;
+  }
 `
 
 interface LandingDashboardDataProps {
