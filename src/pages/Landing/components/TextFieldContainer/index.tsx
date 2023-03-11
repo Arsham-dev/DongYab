@@ -25,7 +25,6 @@ const AddButton = styled('img')`
   transition: all 0.3s ease-in-out;
   &:hover {
     opacity: 0.8;
-    margin: auto;
   }
 `
 const Title = styled('span')`

@@ -38,7 +38,6 @@ const PriceLogo = styled('img')`
   position: absolute;
   left: 15px;
 `
-//TODO: Add hover
 interface TextFieldProps {
   size?: 'medium' | 'large'
   isPrice?: boolean
