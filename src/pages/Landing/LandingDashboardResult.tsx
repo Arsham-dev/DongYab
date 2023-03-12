@@ -12,7 +12,7 @@ const LandingDashboardResultBase = styled('div')`
   flex-direction: column;
   width: 100%;
   align-items: center;
-  padding-bottom: 800px;
+  padding-bottom: 950px;
   @media (max-width: 420px) {
     padding-bottom: 100px;
   }

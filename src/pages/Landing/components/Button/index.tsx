@@ -7,6 +7,7 @@ interface ButtonProps {
   title: string
   size: 'medium' | 'large'
   icon?: string
+  onClick?: () => void
 }
 const ButtonBase = styled('button')`
   display: flex;
@@ -32,9 +33,15 @@ const ButtonBase = styled('button')`
     margin: 0 30px;
   }
 `
-const Button: React.FC<ButtonProps> = ({ title, size = 'medium', icon }) => {
+const Button: React.FC<ButtonProps> = ({
+  title,
+  size = 'medium',
+  icon,
+  onClick
+}) => {
   return (
     <ButtonBase
+      onClick={onClick}
       css={css`
         padding: ${size === 'medium' ? '12px 44px' : '18px 43px'};
         border-radius: ${size === 'medium' ? '25px' : '39.5px'};

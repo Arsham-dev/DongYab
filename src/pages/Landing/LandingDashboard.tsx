@@ -5,6 +5,7 @@ import LandingDashboardData from './LandingDashboardData'
 import styled from '@emotion/styled'
 import Person from '../../types/person'
 import Item from '../../types/items'
+import PersonResult from '../../types/personResult'
 
 const LandingDashboardBase = styled('div')`
   display: flex;
@@ -17,12 +18,14 @@ interface LandingDashboardProps {
   setpersons: React.Dispatch<React.SetStateAction<Person[]>>
   items: Item[]
   setitems: React.Dispatch<React.SetStateAction<Item[]>>
+  setpersonsResult: React.Dispatch<React.SetStateAction<PersonResult[]>>
 }
 const LandingDashboard: React.FC<LandingDashboardProps> = ({
   persons,
   setpersons,
   items,
-  setitems
+  setitems,
+  setpersonsResult
 }) => {
   const removeItem = (index: number) => {
     const newItems = [...items]
@@ -47,6 +50,7 @@ const LandingDashboard: React.FC<LandingDashboardProps> = ({
         persons={persons}
         removeItem={removeItem}
         removePerson={removePerson}
+        setpersonsResult={setpersonsResult}
       />
     </LandingDashboardBase>
   )

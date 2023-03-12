@@ -5,6 +5,8 @@ import Button from './components/Button'
 import InfoItemContainer from './components/InfoItem/InfoItemContainer'
 import Item from '../../types/items'
 import Person from '../../types/person'
+import calcualtePersons from '../../helpers/calcualtePersons'
+import PersonResult from '../../types/personResult'
 const ButtonConatiner = styled('div')`
   margin: 0 45px;
   @media (max-width: 420px) {
@@ -31,18 +33,26 @@ interface LandingDashboardDataProps {
   persons: Person[]
   removeItem: (index: number) => void
   removePerson: (index: number) => void
+  setpersonsResult: React.Dispatch<React.SetStateAction<PersonResult[]>>
 }
 const LandingDashboardData: React.FC<LandingDashboardDataProps> = ({
   items,
   persons,
   removeItem,
-  removePerson
+  removePerson,
+  setpersonsResult
 }) => {
   return (
     <LandingDashboardDataBase>
       <InfoItemContainer data={persons} removeFunction={removePerson} />
       <ButtonConatiner>
-        <Button title="محاسبه دنگ" size="medium" />
+        <Button
+          title="محاسبه دنگ"
+          size="medium"
+          onClick={() => {
+            setpersonsResult(calcualtePersons(persons, items))
+          }}
+        />
       </ButtonConatiner>
       <InfoItemContainer data={items} removeFunction={removeItem} />
     </LandingDashboardDataBase>

@@ -100,6 +100,7 @@ const ResultInfoItem: React.FC<ResultInfoItemProps> = ({
         items={items}
         moneyShouldPay={price}
         paidMoney={paidMoney}
+        shouldPay={shouldPay}
       />
     </>
   )

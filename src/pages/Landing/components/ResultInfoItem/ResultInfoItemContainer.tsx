@@ -33,7 +33,7 @@ const ResultInfoItemContainer: FC<ResultInfoItemContainerProps> = ({
             totalMoney={totalMoney}
             items={items}
             paidMoney={paidMoney}
-            key={index}
+            key={name}
           />
         )
       )}

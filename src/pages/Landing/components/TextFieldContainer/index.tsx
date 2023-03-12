@@ -5,6 +5,7 @@ import styled from '@emotion/styled'
 import TextField from '../TextField'
 import addButton from '../../../../assets/landing/add-button.svg'
 import Item from '../../../../types/items'
+import numberToString from '../../../../helpers/numberToString'
 
 const MainContainer = styled('div')`
   display: flex;
@@ -54,24 +55,20 @@ const TextFieldContianer: FC<TextFieldContianerProps> = ({
   setData,
   label
 }) => {
-  const formatter = new Intl.NumberFormat('en-US', {
-    currency: 'IRR',
-    style: 'currency'
-  })
-  const setPriceFunction = (number: string) => {
-    return formatter
-      .format(
-        Number(
-          number
-            .split('')
-            .map((item) => (/^\d+$/.test(item) ? item : ''))
-            .join('') || '0'
-        )
-      )
-      .slice(4)
-  }
   const [title, settitle] = useState('')
   const [price, setprice] = useState('')
+
+  const setPriceFunction = (number: string) => {
+    return numberToString(
+      Number(
+        number
+          .split('')
+          .map((item) => (/^\d+$/.test(item) ? item : ''))
+          .join('') || '0'
+      )
+    )
+  }
+
   const addData = () => {
     if (title !== '' && price !== '') {
       if (data.some((item) => item.title === title)) {
@@ -83,6 +80,7 @@ const TextFieldContianer: FC<TextFieldContianerProps> = ({
       setprice('')
     }
   }
+
   return (
     <MainContainer>
       <Title>{label}</Title>

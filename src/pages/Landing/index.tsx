@@ -7,6 +7,8 @@ import Person from '../../types/person'
 import Item from '../../types/items'
 import LandingDashboardResult from './LandingDashboardResult'
 import PersonResult from '../../types/personResult'
+import calculatePrices from '../../helpers/calculatePrices'
+import numberToString from '../../helpers/numberToString'
 
 const LandingBase = styled('div')`
   width: 100%;
@@ -27,16 +29,7 @@ const SepratorLine = styled('div')`
 const Landing = () => {
   const [persons, setpersons] = useState<Person[]>([])
   const [items, setitems] = useState<Item[]>([])
-  const [personsResult, setpersonsResult] = useState<PersonResult[]>([
-    {
-      name: 'آرشام رمضانی',
-      moneyShouldPay: '443,312',
-      paidMoney: '454,777',
-      totalMoney: '912,453',
-      shouldPay: true,
-      items: [{ price: '34,234', title: 'چیپس' }]
-    }
-  ])
+  const [personsResult, setpersonsResult] = useState<PersonResult[]>([])
   return (
     <LandingBase>
       <LandingHeader />
@@ -45,10 +38,11 @@ const Landing = () => {
         setpersons={setpersons}
         items={items}
         setitems={setitems}
+        setpersonsResult={setpersonsResult}
       />
       <SepratorLine />
       <LandingDashboardResult
-        totalMoney="5,000,000"
+        totalMoney={numberToString(calculatePrices(items))}
         personsResult={personsResult}
       />
     </LandingBase>

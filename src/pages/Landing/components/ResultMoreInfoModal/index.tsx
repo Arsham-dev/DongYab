@@ -7,14 +7,7 @@ import { css } from '@emotion/react'
 import styled from '@emotion/styled'
 import CloseIcon from '../../../../assets/landing/close-icon.svg'
 import ResultItemsInfo from './ResultItemsInfo'
-interface ResultMoreInfoModalProps {
-  isOpen: boolean
-  onClose: () => void
-  items: Item[]
-  totalItemsPrice: string
-  paidMoney: string
-  moneyShouldPay: string
-}
+
 const CloseButton = styled('img')`
   cursor: pointer;
   transition: all 0.3s ease-in-out;
@@ -66,6 +59,10 @@ const PaidMoney = styled('span')`
   text-align: center;
   color: #000000;
   margin-bottom: 52px;
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  justify-content: center;
 `
 const MoneyShouldPay = styled('div')`
   display: flex;
@@ -75,13 +72,23 @@ const MoneyShouldPay = styled('div')`
   font-weight: 800;
   font-size: 16px;
 `
+interface ResultMoreInfoModalProps {
+  isOpen: boolean
+  onClose: () => void
+  items: Item[]
+  totalItemsPrice: string
+  paidMoney: string
+  moneyShouldPay: string
+  shouldPay: boolean
+}
 const ResultMoreInfoModal: FC<ResultMoreInfoModalProps> = ({
   isOpen,
   onClose,
   items,
   totalItemsPrice,
   paidMoney,
-  moneyShouldPay
+  moneyShouldPay,
+  shouldPay
 }) => {
   return (
     <Modal
@@ -121,7 +128,13 @@ const ResultMoreInfoModal: FC<ResultMoreInfoModalProps> = ({
           &nbsp; &nbsp;
           <span>T</span>
         </TotalItemsPrice>
-        <PaidMoney>میزان پرداختی از قبل: {paidMoney} T</PaidMoney>
+        {/* <PaidMoney>میزان پرداختی از قبل: {paidMoney} T</PaidMoney> */}
+        <PaidMoney>
+          <span>:میزان پرداختی از قبل</span>&nbsp;
+          <span>{paidMoney}</span>
+          &nbsp; &nbsp;
+          <span>T</span>
+        </PaidMoney>
         <MoneyShouldPay>
           <span>:در مجموع</span>
           &nbsp;
@@ -129,7 +142,7 @@ const ResultMoreInfoModal: FC<ResultMoreInfoModalProps> = ({
           &nbsp;&nbsp;
           <span>T</span>
           &nbsp;
-          <span>طلبکار</span>
+          <span>{shouldPay ? 'بدهکار' : 'طلبکار'}</span>
         </MoneyShouldPay>
       </ModalBody>
     </Modal>
