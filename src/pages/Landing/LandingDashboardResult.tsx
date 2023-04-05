@@ -3,8 +3,6 @@
 import styled from '@emotion/styled'
 import React from 'react'
 import ResultInfoItemContainer from './components/ResultInfoItem/ResultInfoItemContainer'
-import Button from './components/Button'
-import downloadIcon from '../../assets/landing/download-icon.svg'
 import PersonResult from '../../types/personResult'
 
 const LandingDashboardResultBase = styled('div')`
@@ -43,11 +41,12 @@ const LandingDashboardResult: React.FC<LandingDashboardResultProps> = ({
         T&nbsp;&nbsp;{`مجموع خرج های انجام شده: ${totalMoney} `}
       </LandingDashboardResultHeader>
       <ResultInfoItemContainer personsResult={personsResult} />
-      <Button
+      {/* <Button
         size="large"
         title="دریافت فایل اکسل تمامی ریز هزینه های اشخاص"
         icon={downloadIcon}
-      />
+        onClick={() => createExcelFile(personsResult)}
+      /> */}
     </LandingDashboardResultBase>
   )
 }
