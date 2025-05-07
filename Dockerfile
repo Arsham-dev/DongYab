@@ -14,6 +14,6 @@
     
     COPY --from=builder /app ./
     
-    EXPOSE 3101
+    EXPOSE 3102
     
-    CMD ["yarn", "preview", "--host", "--port", "3101"]
+    CMD ["yarn", "preview", "--host", "--port", "3102"]
