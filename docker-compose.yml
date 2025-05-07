@@ -1,0 +1,6 @@
+services:
+  donyab:
+    build: .
+    ports:
+      - '3102:3102'
+    restart: unless-stopped
